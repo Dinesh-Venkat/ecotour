@@ -1,0 +1,89 @@
+.calendar-table {
+  width: 100%;
+  max-width: 100%;
+  border-collapse: collapse;
+  border: none;
+  background: #fff;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+}
+.calendar-table thead {
+  background: #83bd6e;
+}
+.calendar-table thead th {
+  color: #fff;
+  height: 50px;
+  font-family: 'Catamaran', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  border: 1px solid #83bd6e;
+  border-bottom: none;
+}
+.calendar-table thead th.prev-month,
+.calendar-table thead th.next-month {
+  width: 14.28571%;
+  padding: 0;
+}
+.calendar-table thead th.prev-month a,
+.calendar-table thead th.next-month a {
+  display: block;
+  height: 50px;
+  width: 100%;
+  background: no-repeat url('carousal-prev.png') center center;
+}
+.calendar-table thead th.prev-month a:hover,
+.calendar-table thead th.next-month a:hover {
+  background-color: #73ad5e;
+}
+.calendar-table thead th.next-month a {
+  background-image: url('carousal-next.png');
+}
+.calendar-table tbody .day-header {
+  color: #fff;
+  height: 40px;
+  font-size: 18px;
+  border: 1px solid #76a764;
+  background: #7fb16c;
+}
+.calendar-table tbody .day-header.sunday {
+  background: #72a260;
+}
+.calendar-table tbody .calendar-day {
+  height: 90px;
+  width: 14.28571%;
+  font-size: 28px;
+  color: #999;
+  background: #ddd;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.calendar-table tbody .calendar-day.enabled {
+  color: #555;
+  background: #fff;
+}
+.calendar-table tbody .calendar-day.enabled:hover {
+  color: #fff;
+  background: #5a9659;
+  border-color: #5a9659;
+}
+.calendar-table tbody .calendar-day.enabled.selected {
+  color: #fff;
+  background: #60b15f;
+  border-color: #60b15f;
+}
+.calendar-table tbody .calendar-day.today {
+  position: relative;
+}
+.calendar-table tbody .calendar-day.today:after {
+  content: "";
+  display: block;
+  height: 6px;
+  width: 20px;
+  border-radius: 3px;
+  background: #50864f;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  margin-left: -9px;
+}

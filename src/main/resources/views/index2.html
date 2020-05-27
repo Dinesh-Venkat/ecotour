@@ -1,0 +1,116 @@
+
+<!DOCTYPE HTML>
+<HTML>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theni Eco Tourism</title>
+    <script type="text/javascript" src="../scripts/jquery-1.9.1.min.js"></script>
+    <link href="../styles/responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/supersized.css">
+    <link rel="stylesheet" href="../styles/ublue_ImageCarousel.css">
+    <link rel="stylesheet" href="../styles/jquery-ui.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.13/r-2.1.1/datatables.min.css"/>
+    <link rel="stylesheet" href="../styles/style2.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:800,900|Nunito" rel="stylesheet">
+    <script type="text/javascript" src="../scripts/ublue_ImageCarousel.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/r-2.1.1/datatables.min.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="../scripts/script.js"></script>
+    <script type="text/javascript" src="../scripts/supersized.3.2.7.min.js"></script>
+
+    <script type="text/javascript">
+			$(function(){
+
+				$.supersized({
+					slide_interval          :   3000,		// Length between transitions
+					transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+					transition_speed		:	1000,		// Speed of transition
+					slide_links				:	'false',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+					slides 					:  	[			// Slideshow Images
+														{image : '../images/bkg1.jpg'},
+
+														{ image: '../images/bkg4.jpg' },
+
+														//{image : 'img/bg3e.jpg'}
+												]});
+
+});
+
+function openNav() {
+  location.href ='index.html';
+}
+
+
+
+</script>
+</head>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+.navbar {
+  width: 100%;
+  background-color: #555;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #000;
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+</style>
+<body>
+
+<div id="bg-overlay" class=""></div>
+<header id="main-header" class="">
+    <div id="logo">
+        <img src="https://cdn.s3waas.gov.in/s39a96876e2f8f3dc4f3cf45f02c61c0c1/uploads/2019/04/2019041536.png">
+    </div>
+
+    <div id="menu-container">
+        <ul id="main-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#" onclick="openNav();">Activities</a></li>
+            <li><a href="#">WesternGhats</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Contact Us</a></li>
+
+        </ul>
+    </div>
+
+</header>
+
+<div id="page-wrapper" class="loading">
+</div>
+</body>
+</HTML>
+
+
+
+
+
+
+
+
+
+
+

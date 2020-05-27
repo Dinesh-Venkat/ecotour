@@ -1,0 +1,112 @@
+@media screen and (max-width: 980px) {
+  #main-header {
+    width: 240px;
+  }
+  #page-wrapper {
+    padding: 20px 20px 20px 260px;
+  }
+  #page-wrapper #page {
+    padding: 40px 20px 20px;
+  }
+}
+@media screen and (max-width: 780px) {
+  #mobile-logo {
+    display: block;
+    position: fixed;
+    top: 50%;
+    max-width: 100%;
+    width: 100%;
+    text-align: center;
+    margin: -48px 0 0;
+  }
+  #bg-overlay.mobile-menu-active {
+    opacity: 1;
+    visibility: visible;
+  }
+  #mobile-menu-button {
+    right: 10px;
+    top: 10px;
+    height: 40px;
+    width: 40px;
+    background: no-repeat rgba(0, 0, 0, 0.4) url('../img/menu-btn.png') center center;
+    position: fixed;
+    z-index: 60;
+  }
+  #main-header {
+    width: 100%;
+    padding: 0;
+    overflow: auto;
+  }
+  #main-header #logo {
+    height: 60px;
+    display: inline-block;
+    float: left;
+    margin: 0 10px;
+  }
+  #main-header #logo img {
+    max-height: 100%;
+  }
+  #main-header #menu-container {
+    float: left;
+    width: 100%;
+  }
+  #main-header #main-menu {
+    display: none;
+    text-align: left;
+    margin: 0;
+    padding: 16px 0;
+  }
+  #main-header #main-menu.mobile-menu {
+    display: block;
+  }
+  #main-header #main-menu li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  #main-header #main-menu .submenued:before {
+    opacity: 1;
+    right: 10px;
+    border-top: 5px solid #afafaf;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+  }
+  #main-header #main-menu .submenued .submenu {
+    left: 0;
+    position: relative;
+    padding-left: 15px;
+    display: none;
+  }
+  #main-header #main-menu .submenued.expand:before {
+    transform: rotate(180deg);
+  }
+  #main-header #main-menu .submenued.expand .submenu {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+  }
+  #page-wrapper {
+    padding: 60px 20px 20px;
+    z-index: 50;
+  }
+  #page-wrapper > div {
+    margin-bottom: 20px;
+  }
+  /* Pages */
+  #date-selector {
+    width: 100%;
+  }
+  #date-selector .calendar-day {
+    height: 60px;
+    font-size: 18px;
+  }
+  #date-selector .calendar-day.today:after {
+    top: 45px;
+  }
+  #booking-summary {
+    width: 100%;
+  }
+  /* Forms */
+  .fields-container > div {
+    width: 100%;
+  }
+}
