@@ -2,15 +2,14 @@ package com.theni.ecotourism.controller;
 
 import com.theni.ecotourism.pojo.UserReqDetails;
 import com.theni.ecotourism.service.UserReqDetailsService;
-import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.mail.*;
-import javax.mail.internet.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
@@ -26,7 +25,7 @@ public class UserReqDetailsController {
 
     @PostMapping(value = "/userreq")
     public @ResponseBody
-    String homePage(@RequestBody List<UserReqDetails> userReqDetailsList){
+    String homePage(@RequestBody List<UserReqDetails> userReqDetailsList) {
 
         try {
             sendmail(userReqDetailsList);
@@ -38,7 +37,8 @@ public class UserReqDetailsController {
 
         return userReqDetailsService.saveUserDetails(userReqDetailsList);
     }
-    private void sendmail(List<UserReqDetails> userReqDetailsList ) throws AddressException, MessagingException, IOException {
+
+    private void sendmail(List<UserReqDetails> userReqDetailsList) throws MessagingException, IOException {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -57,7 +57,6 @@ public class UserReqDetailsController {
         msg.setSubject("Approval Required for EcoTourism");
 
 
-
         //msg.setContent(emailBodyConstruction(userReqDetailsList), "text/html");
         msg.setSentDate(new Date());
 
@@ -65,7 +64,7 @@ public class UserReqDetailsController {
         messageBodyPart.setContent(emailBodyConstruction(userReqDetailsList), "text/html");
 
         MimeBodyPart messageBodyPart2 = new MimeBodyPart();
-        messageBodyPart2.setContent("<br><br>Thanks,<br>Theni Forest Department","text/html");
+        messageBodyPart2.setContent("<br><br>Thanks,<br>Theni Forest Department", "text/html");
         Multipart multipart = new MimeMultipart();
         multipart.addBodyPart(messageBodyPart);
         multipart.addBodyPart(messageBodyPart2);
@@ -74,7 +73,7 @@ public class UserReqDetailsController {
     }
 
 
-    private String emailBodyConstruction(List<UserReqDetails> userReqDetailsList){
+    private String emailBodyConstruction(List<UserReqDetails> userReqDetailsList) {
 
         StringBuilder emailContent = new StringBuilder();
 
@@ -82,10 +81,10 @@ public class UserReqDetailsController {
         emailContent.append("<tr><th>USER NAME</th><th>AGE</th><th>GENEDER</th><th>MOBILE NUMBER</th><th>EMAIL</th><th>ADDRESS</th><th>ARRIVAL DATE</th><th>ID PROOF TYPE</th><th>ID PROOF DETAILS</th><th>STATUS</th></tr>");
 
 
-for(UserReqDetails user : userReqDetailsList ) {
+        for (UserReqDetails user : userReqDetailsList) {
 
-    emailContent.append("<tr><td>" + user.getUser_name() + "</td><td>" + user.getAge() + "</td><td>" + user.getGender() + "</td><td>" + user.getMobile_num() +"</td><td>" + user.getEmail() +"</td><td>"+ user.getAddress() +"</td><td>" + user.getArrival_date() +"</td><td>" + user.getId_proof_type() +"</td><td>" + user.getId_proof_details() +"</td><td>" + user.getStatus() +"</td></tr> ");
-}
+            emailContent.append("<tr><td>" + user.getUser_name() + "</td><td>" + user.getAge() + "</td><td>" + user.getGender() + "</td><td>" + user.getMobile_num() + "</td><td>" + user.getEmail() + "</td><td>" + user.getAddress() + "</td><td>" + user.getArrival_date() + "</td><td>" + user.getId_proof_type() + "</td><td>" + user.getId_proof_details() + "</td><td>" + user.getStatus() + "</td></tr> ");
+        }
         emailContent.append("</table></body></html>");
 
         return emailContent.toString();
