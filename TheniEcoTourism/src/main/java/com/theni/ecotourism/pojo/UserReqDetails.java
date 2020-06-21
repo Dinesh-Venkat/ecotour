@@ -7,14 +7,14 @@ import javax.persistence.*;
 public class UserReqDetails {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer user_id;
     @Column(name = "user_name", nullable = false)
     private String user_name;
-    @Column(name = "age", nullable = false)
+    @Column(name = "age", nullable = true)
     private Integer age;
-    @Column(name = "gender", nullable = false)
+    @Column(name = "gender", nullable = true)
     private String gender;
     @Column(name = "mobile_num", nullable = false)
     private Long mobile_num;
@@ -28,9 +28,9 @@ public class UserReqDetails {
     private String id_proof_type;
     @Column(name = "id_proof_details", nullable = false)
     private String id_proof_details;
-    @Column(name = "status", nullable = false)
+    @Column(name = "status", nullable = true)
     private String status;
-    @Column(name = "reason", nullable = false)
+    @Column(name = "reason", nullable = true)
     private String reason;
 
 

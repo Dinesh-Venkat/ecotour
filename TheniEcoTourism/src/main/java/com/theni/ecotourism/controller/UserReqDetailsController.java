@@ -2,11 +2,12 @@ package com.theni.ecotourism.controller;
 
 import com.theni.ecotourism.pojo.UserReqDetails;
 import com.theni.ecotourism.service.UserReqDetailsService;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -16,13 +17,14 @@ import java.util.List;
 import java.util.Properties;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserReqDetailsController {
 
 
     @Autowired
     private UserReqDetailsService userReqDetailsService;
 
-    @PostMapping("/userreq")
+    @PostMapping(value = "/userreq")
     public @ResponseBody
     String homePage(@RequestBody List<UserReqDetails> userReqDetailsList){
 
@@ -35,8 +37,6 @@ public class UserReqDetailsController {
         }
 
         return userReqDetailsService.saveUserDetails(userReqDetailsList);
-
-
     }
     private void sendmail(List<UserReqDetails> userReqDetailsList ) throws AddressException, MessagingException, IOException {
         Properties props = new Properties();
@@ -51,9 +51,9 @@ public class UserReqDetailsController {
             }
         });
         Message msg = new MimeMessage(session);
-        msg.setFrom(new InternetAddress("mysterys1989@gmail.com", false));
+        msg.setFrom(new InternetAddress("", false));
 
-        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("er.dinesh26@gmail.com,manisvasan18@gmail.com,hunnyaruvi@yahoo.com,venkat.dinesh91@gmail.com"));
+        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(userReqDetailsList.get(0).getEmail()));
         msg.setSubject("Approval Required for EcoTourism");
 
 
