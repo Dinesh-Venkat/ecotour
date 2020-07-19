@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="../scripts/jquery-1.9.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../scripts/approve.js"></script>
+    <style>
+
+        .bg-img {
+  background-image: url("../images/kurangani.jpg");
+
+  min-height:1000px;
+
+
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
+}
+.bs-example{
+    	margin: 20px;
+    }
+    .table-row{
+cursor:pointer;
+}
+
+    </style>
+</head>
+<body>
+<div class="bg-img">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+            <span> <a class="nav-brand" href="http://www.tamilnadutourism.org/about-ttdc.html"><img width="50" height="50" src="https://cdn.s3waas.gov.in/s39a96876e2f8f3dc4f3cf45f02c61c0c1/uploads/2019/04/2019041536.png"  /></a>
+
+            </div>
+            <ul class="nav navbar-nav" style="font-size:20px;">
+                <!--<li class="active"><a href="#">Home</a></li>-->
+                <li class="dropdown"><a href="#">Pending Requests</a></li>
+                <li><a href="#">Approved Requests</a></li>
+                <li><a href="#">Rejected Requests</a></li>
+                <li><a href="#">Pending for Payment</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 style="color:darkblue;font-size=30px;">REQUEST DETAILS</h2>
+        <p style="font-size:x-large;color:antiquewhite;">
+            Review the details and use Approve/Decline button to approve or decline the request.
+        </p>
+        <div class="bs-example">
+<div style="float:left;font-size:x-large;display:inline-flex;color:antiquewhite">
+              <label>Request ID:</label><p id="reqId"></p>
+</div>
+            <div style="float:right;font-size:x-large;display:inline-flex;color:antiquewhite">
+                <label>Arrival Date:</label><p>ArrivalDate here</p>
+            </div>
+<div id="leadertable">
+
+            <table class="table table-dark" id="tb_leader">
+                <caption style="color:antiquewhite;font-size:x-large">LEADER DETAILS</caption>
+                <thead style="font-size:x-large;background:antiquewhite;">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>MobileNo</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>ID</th>
+                    <th>ID Details</th>
+                </tr>
+                </thead>
+
+                <tbody style="font-size:x-large;background-color:lightsteelblue;">
+
+                </tbody>
+            </table>
+</div>
+            <div id ="participanttable">
+
+            <table class="table table-dark" id="tb_list">
+                <caption style="color:antiquewhite;font-size:large">PARTICIPANT DETAILS</caption>
+                <thead style="font-size:x-large;background:antiquewhite;">
+                <tr>
+                    <th>Name Of the Participant</th>
+                    <th>Age</th>
+                    <th>MobileNo</th>
+                    <th>ID</th>
+                    <th>ID Details</th>
+                </tr>
+                </thead>
+
+                <tbody style="font-size:x-large;background-color:lightsteelblue;">
+
+                </tbody>
+            </table>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <button type="button" style="background: green; color: white;font-size:x-large"
+                           data-id="1" data-toggle="modal" data-target="#approvalModal">Approve</button>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6">
+                    <button type="button" style="background: red; color: white;font-size:x-large"
+                          data-id="1"  data-toggle="modal" data-target="#declineModal">Decline</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bs-example">
+        <div id="approvalModal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Approve The Request </h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to Approve the request</p>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Review the Request Again</button>
+                        <button type="button" onclick="approveDeclineRequest('approve');" class="btn btn-primary" data-dismiss="modal">Approve</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bs-example">
+        <div id="declineModal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Decline The Request </h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please enter the reason for decline</p>
+
+                        <textarea class="form-control" name="message" id="declineMessage" rows="4"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Review the Request Again</button>
+                        <button type="button" onclick="approveDeclineRequest('decline');" class="btn btn-primary" data-dismiss="modal">Decline</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+</script>
+</body>
+</html>

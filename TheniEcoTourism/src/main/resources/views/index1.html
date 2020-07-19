@@ -212,7 +212,7 @@
                         </div>
                     </div>
 
-
+<form>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group edit-field-form">
@@ -221,40 +221,55 @@
                                 </small>
                                 <label for="inputName0" class="label-form" id="has-error-name">Name: <span
                                         style="color:#fd0101;">*</span></label>
-                                <input name="name" class="form-control" id="inputName0" placeholder="" type="text">
+                                <input name="name" class="form-control" id="inputName0" placeholder="" type="text" required />
                             </div>
-
-                            <div class="form-group edit-field-form">
-                                <small>
-
-                                </small>
-                                <label for="inputPhone0" class="label-form" id="has-error-phone">Phone: <span
-                                        style="color:#fd0101;">*</span></label>
-                                <input name="phone" class="form-control" id="inputPhone0" placeholder="" type="text">
-                            </div>
-
                         </div>
 
                         <div class="col-md-6 col-sm-6">
                             <div class="form-group edit-field-form">
                                 <small>
-                                    <!-- <div class="error text-muted" id="str-error-email"></div> -->
+
                                 </small>
                                 <label for="inputEmail" class="label-form" id="has-error-email">Email: <span
                                         style="color:#fd0101;">*</span></label>
-                                <input name="email" class="form-control" id="inputEmail" placeholder="" type="text">
+                                <input name="email" class="form-control" id="inputEmail" placeholder="" type="text" required />
                             </div>
-
-                            <div class="form-group edit-field-form" id="has-error-date_from">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group edit-field-form">
                                 <small>
-                                    <!--  <div class="error text-muted" id="str-error-date_from"></div> -->
                                 </small>
-                                <label for="inputDateFrom">Arrival date:</label>
-                                <input class="form-control datepicker date_from hasDatepicker" name="date_from"
-                                    id="inputDateFrom" placeholder="dd-mm-yyyy" type="date">
+                                <label for="inputPhone0" class="label-form" id="has-error-phone">Phone: <span
+                                        style="color:#fd0101;">*</span></label>
+                                <input name="phone" class="form-control" id="inputPhone0" placeholder="" type="text" required />
                             </div>
 
                         </div>
+
+                        <div class="col-md-3 col-sm-3">
+                            <div class="form-group edit-field-form">
+                                <small>
+                                    <!-- <div class="error text-muted" id="str-error-email"></div> -->
+                                </small>
+                                <label for="inputDateFrom">Arrival date: <span
+                                        style="color:#fd0101;">*</span></label>
+                                <input style="width:180px;" class="form-control datepicker date_from hasDatepicker" name="date_from"
+                                       id="inputDateFrom" placeholder="dd-mm-yyyy" type="date" required />
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div class="form-group edit-field-form">
+                                <small>
+                                    <!-- <div class="error text-muted" id="str-error-email"></div> -->
+                                </small>
+                                <label for="inputAge" class="label-form" id="has-error-age">Age: <span
+                                        style="color:#fd0101;">*</span></label>
+                                <input style="width:100px" name="email" class="form-control" id="inputAge" placeholder="" type="text" required />
+                            </div>
+                        </div>
+
                     </div>
 
 
@@ -908,7 +923,6 @@
 
 
 
-
                     <div class="row">
 
                         <div class="col-md-6 col-sm-6 col-xs-6">
@@ -916,6 +930,8 @@
                             onclick="formSubmit();">Apply for Permission</button>
                         </div>
                     </div>
+  </form>
+
 
                     <hr class="featurette-divider">
 

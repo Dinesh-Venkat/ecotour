@@ -8,6 +8,7 @@
 
     <script type="text/javascript" src="../scripts/jquery-1.9.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../scripts/pendingRequests.js"></script>
     <style>
 
         .bg-img {
@@ -36,35 +37,35 @@ cursor:pointer;
 </head>
 <body>
 <div class="bg-img">
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
 
             <span> <a class="nav-brand" href="http://www.tamilnadutourism.org/about-ttdc.html"><img width="50" height="50" src="https://cdn.s3waas.gov.in/s39a96876e2f8f3dc4f3cf45f02c61c0c1/uploads/2019/04/2019041536.png"  /></a>
 
+            </div>
+            <ul class="nav navbar-nav" style="font-size:20px;">
+                <li class="active"><a href="#">Home</a></li>
+                <!--  <li class="dropdown"><a href="#">Pending Requests</a></li>-->
+                <li><a href="#">Approved Requests</a></li>
+                <li><a href="#">Rejected Requests</a></li>
+                <li><a href="#">Pending for Payment</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+            </ul>
         </div>
-        <ul class="nav navbar-nav" style="font-size:20px;">
-            <li class="active"><a href="#">Home</a></li>
-          <!--  <li class="dropdown"><a href="#">Pending Requests</a></li>-->
-            <li><a href="#">Approved Requests</a></li>
-            <li><a href="#">Rejected Requests</a></li>
-            <li><a href="#">Pending for Payment</a></li>
-        </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
-        </ul>
-    </div>
-</nav>
+    </nav>
 
     <div class="container">
         <h2 style="color:darkblue;font-size=30px;">PENDING REQUESTS</h2>
         <p style="font-size:x-large;color:antiquewhite;">
-             Click on any row in table to view or approve the request details.
+            Click on any row in table to view or approve the request details.
         </p>
         <div class="bs-example">
-            <table class="table table-dark">
+            <table class="table table-dark" id="tb_list">
                 <thead style="font-size:x-large;background:antiquewhite;">
                 <tr>
                     <th>Request ID</th>
@@ -74,33 +75,32 @@ cursor:pointer;
                     <th>No of Persons</th>
                 </tr>
                 </thead>
+
                 <tbody style="font-size:x-large;background-color:lightsteelblue;">
-                <tr class="table-row" onclick="location.href='adminLogin.html'">
-                    <td>1</td>
-                    <td>22/06/1988</td>
-                    <td>22/06/1898</td>
-                    <td>mani@gmail.com</td>
-                    <td>1</td>
-                </tr>
-                <tr class="table-row"data-href="#">
-                    <td>2</td>
-                    <td>22/06/1988</td>
-                    <td>22/06/1898</td>
-                    <td>mani@gmail.com</td>
-                    <td>1</td>
-                </tr>
-                <tr class="table-row"data-href="#">
-                    <td>3</td>
-                    <td>22/06/1988</td>
-                    <td>22/06/1898</td>
-                    <td>mani@gmail.com</td>
-                    <td>1</td>
-                </tr>
+
                 </tbody>
             </table>
+
         </div>
-</div>
+    </div>
 
+    <script>
+    $(document).ready( function () {
+  var test = { "reqId":"1", "arrDate":"30/30/2020", "subDate":"25/20/2020","leader":"Mani","noPersons":5 };
+    console.log(test);
+    var data=[test];
+    //data.push(test);
+    var row='';
+    $.each(data, function (i, v) {
 
+    row += "<tr class='table-row' onclick=callNextPage("+v.reqId+")><td>" + v.reqId + "</a></td>" + "<td>" + v.arrDate + "</td>" + "<td>" + v.subDate + "</td><td>" + v.leader + "</td><td>" + v.noPersons + "</td>" + "</tr>";
+console.log(row);
+    });
+
+    $("#tb_list").append(row);
+
+});
+
+</script>
 </body>
 </html>
